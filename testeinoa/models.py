@@ -2,9 +2,9 @@ from django.db import models
 from django.core.validators import MinValueValidator
 
 
-class Stock(models.Model):
+class Asset(models.Model):
 
-    stock_code = models.CharField('Código do Ativo',
+    asset_code = models.CharField('Código do Ativo',
                                   max_length=20,
                                   unique=True)
     
@@ -25,7 +25,7 @@ class Stock(models.Model):
     
 class PriceHistory(models.Model):
     
-    stock_code = models.CharField('Código do Ativo',
+    asset_code = models.CharField('Código do Ativo',
                                   max_length=20)
     
     price = models.DecimalField(max_digits=10,
@@ -33,4 +33,4 @@ class PriceHistory(models.Model):
     
     update_time = models.DateTimeField('Data da atualização')
     
-    stock = models.ForeignKey(Stock, on_delete=models.CASCADE)
+    asset = models.ForeignKey(Asset, on_delete=models.CASCADE)
