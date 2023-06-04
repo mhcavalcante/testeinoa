@@ -1,9 +1,13 @@
 {% extends 'base.html' %} {% block content %}
 
 <div class="card shadow-sm mt-3" style="width: fit-content">
-  <h4 class="card-header">Cadastrar ativo</h4>
+  <h4 class="card-header">Lista de Ativos Monitorados</h4>
   <div class="card-body">
-    <form action="/assets/add" method="post" class="form-inline">
+    <form
+      action="{% if form.instance.pk %}{% url 'updateAsset' form.instance.asset_code %}{% else %}{% url 'addAsset' %}{% endif %}"
+      method="post"
+      class="form-inline"
+    >
       {% csrf_token %}
       <div class="row" style="flex-wrap: nowrap">
         <div class="col p-1">{{ form.asset_code }}</div>
@@ -12,7 +16,11 @@
         <div class="col p-1">{{ form.update_frequency }}</div>
         <div class="col p-1">{{ form.email }}</div>
         <div class="col p-1">
+          {% if form.instance.pk %}
+          <input class="btn btn-primary" type="submit" value="Atualizar" />
+          {% else %}
           <input class="btn btn-primary" type="submit" value="Cadastrar" />
+          {% endif %}
         </div>
         <div class="col p-1">
           <a class="btn btn-outline-primary mr-2" href="{% url 'assets' %}">
@@ -49,12 +57,19 @@
               </a>
             </td>
             <td>
-                <a href="{% url 'deleteAsset' asset.asset_code %}"
-                  ><button class="btn btn-sm btn-outline-secondary">
-                    Deletar
-                  </button>
-                </a>
-              </td>
+              <a href="{% url 'updateAsset' asset.asset_code %}"
+                ><button class="btn btn-sm btn-outline-secondary">
+                  Editar
+                </button>
+              </a>
+            </td>
+            <td>
+              <a href="{% url 'deleteAsset' asset.asset_code %}"
+                ><button class="btn btn-sm btn-outline-secondary">
+                  Deletar
+                </button>
+              </a>
+            </td>
           </tr>
           {% endfor %}
         </tbody>

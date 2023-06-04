@@ -56,7 +56,7 @@ def getAssetPrice(code):
     request = requests.get(url)
     asset_price = request.json()
     
-    price_history = PriceHistory(asset_code = asset.asset_code, price = asset_price[0]['regularMarketPrice'], update_time = asset_price[0]['regularMarketTime'], asset = asset.asset_code)
+    price_history = PriceHistory(asset_code = asset.asset_code, price = asset_price['results'][0]['regularMarketPrice'], update_time = asset_price['results'][0]['regularMarketTime'], asset = asset)
     price_history.save()
     
     if price_history.price >= asset.tunel_max:

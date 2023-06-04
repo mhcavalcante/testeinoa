@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponse
 from testeinoa.forms import AssetForm
 from testeinoa.models import Asset, PriceHistory
@@ -45,4 +45,16 @@ def deleteAsset(request, asset_code):
     CompletedTask.objects.get(verbose_name = asset.asset_code).delete()        
     
     return render(request, 'testeinoa/addAsset.html', {'form': form, 'assets_list': assets_list})
-        
+
+def updateAsset(request, asset_code):
+    asset = Asset.objects.get(asset_code=asset_code)
+    form = AssetForm(request.POST or None, instance=asset)
+
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        form = AssetForm(None)
+        return redirect('addAsset')
+
+    assets_list = getAssetList()
+
+    return render(request, 'testeinoa/addAsset.html', {'form': form, 'assets_list': assets_list})
