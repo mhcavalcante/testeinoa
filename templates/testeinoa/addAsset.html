@@ -1,0 +1,66 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="card shadow-sm mt-3" style="width: fit-content">
+  <h4 class="card-header">Cadastrar ativo</h4>
+  <div class="card-body">
+    <form action="/assets/add" method="post" class="form-inline">
+      {% csrf_token %}
+      <div class="row" style="flex-wrap: nowrap">
+        <div class="col p-1">{{ form.asset_code }}</div>
+        <div class="col p-1">{{ form.tunel_max }}</div>
+        <div class="col p-1">{{ form.tunel_min }}</div>
+        <div class="col p-1">{{ form.update_frequency }}</div>
+        <div class="col p-1">{{ form.email }}</div>
+        <div class="col p-1">
+          <input class="btn btn-primary" type="submit" value="Cadastrar" />
+        </div>
+        <div class="col p-1">
+          <a class="btn btn-outline-primary mr-2" href="{% url 'assets' %}">
+            Voltar</a
+          >
+        </div>
+      </div>
+    </form>
+    <div class="mt-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Ativo</th>
+            <th>Túnel Max</th>
+            <th>Túnel Min</th>
+            <th>Taxa de verificação (min)</th>
+            <th>Email</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for asset in assets_list %}
+          <tr>
+            <td>{{ asset.asset_code }}</td>
+            <td>{{ asset.tunel_max }}</td>
+            <td>{{ asset.tunel_min }}</td>
+            <td>{{ asset.update_frequency }}</td>
+            <td>{{ asset.email }}</td>
+            <td>
+              <a href="{% url 'priceHistory' asset.asset_code %}"
+                ><button class="btn btn-sm btn-outline-secondary">
+                  Histórico
+                </button>
+              </a>
+            </td>
+            <td>
+                <a href="{% url 'deleteAsset' asset.asset_code %}"
+                  ><button class="btn btn-sm btn-outline-secondary">
+                    Deletar
+                  </button>
+                </a>
+              </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

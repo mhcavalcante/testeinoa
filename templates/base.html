@@ -73,14 +73,14 @@
                   <a class="nav-link" href="{% url 'assets' %}">Listar Ativos</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Monitorar Ativos</a>
+                  <a class="nav-link" href="{% url 'addAsset' %}">Monitorar Ativos</a>
                 </li>
               </ul>
             </div>
           </nav>
         </div>
         <div class="col-md-10">
-          <div class="container">{% block content %} {% endblock %}</div>
+          <div>{% block content %} {% endblock %}</div>
         </div>
       </div>
     </div>

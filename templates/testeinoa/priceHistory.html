@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="card shadow-sm mt-3" style="width: fit-content">
+  <h4 class="card-header">Histórico de Ativos</h4>
+  <div class="card-body">
+    <div class="mt-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Código do Ativo</th>
+            <th>Cotação</th>
+            <th>Data da atualização</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% if not has_price %}
+         <tr>
+            <td>
+                Sem histórico para o ativo.
+            </td>
+         </tr>
+         {% else %}
+          {% for price in prices_list %}
+          <tr>
+            <td>{{ price.asset_code }}</td>
+            <td>{{ price.price }}</td>
+            <td>{{ price.update_time }}</td>
+          </tr>
+          {% endfor %}
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
