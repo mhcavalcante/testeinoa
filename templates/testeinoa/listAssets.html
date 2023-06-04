@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Listagem de Ativos</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Ativo</th>
+      <th>Nome</th>
+      <th>Preço</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for asset in listAssets %}
+    <tr>
+      <td><img style="max-width: 60px" src="{{asset.logo }}" /></td>
+      <td>{{ asset.asset }}</td>
+      <td>{{ asset.name }}</td>
+      <td>{{ asset.close }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -19,7 +19,7 @@ class Asset(models.Model):
                                     validators=[MinValueValidator(0.001, 'Túnel mínimo deve ser maior que R$ 0,00')])
 
     update_frequency = models.IntegerField('Periodicidade de atualização (minutos)',
-                                            validators=[MinValueValidator(1, 'Periodicidade deve ser no mínimo de 1 minuto.')])
+                                            validators=[MinValueValidator(1, 'Periodicidade deve ter no mínimo 1 minuto.')])
 
     email = models.EmailField(max_length=255)
     
