@@ -56,13 +56,10 @@ Onde {id} é o código do ativo
 ### Telas
 
 Index
-
-![Untitled](static\images\Untitled 1.png)
+![Untitled](https://github.com/mhcavalcante/testeinoa/assets/54690352/09443925-a0f9-4fba-aa10-680240e5514e)
 
 Listar Ativos
-
-![Untitled](static\images\Untitled 2.png)
+![Untitled 1](https://github.com/mhcavalcante/testeinoa/assets/54690352/17329bee-b015-4076-8293-f68b2baf6ac7)
 
 Monitorar Ativos
-
-![Untitled](static\images\Untitled 3.png)
+![Untitled 2](https://github.com/mhcavalcante/testeinoa/assets/54690352/84b6235d-3fa9-470f-85bf-d5780131a0ff)
