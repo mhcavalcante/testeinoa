@@ -35,7 +35,7 @@ DEFAULT_FROM_EMAIL = ‘exemplo@gmail.com’
 Para que o projeto funcione corretamente, existe a necessidade de rodar o serviço de obter cotações e enviar emails em background (django4-background-tasks). Para tanto, abra um novo terminal e utilize o seguinte comando :
 
 ```bash
-py [manage.py](http://manage.py) process_tasks
+py manage.py process_tasks
 ```
 
 Obs: Mantenha o terminal em execução durante o uso da aplicação.
