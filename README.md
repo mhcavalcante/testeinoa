@@ -57,12 +57,12 @@ Onde {id} é o código do ativo
 
 Index
 
-![Untitled](Projeto%20Inoa%209d1ac2efd78146fe87442de58bcf66cb/Untitled.png)
+![Untitled](static\images\Untitled 1.png)
 
 Listar Ativos
 
-![Untitled](Projeto%20Inoa%209d1ac2efd78146fe87442de58bcf66cb/Untitled%201.png)
+![Untitled](static\images\Untitled 2.png)
 
 Monitorar Ativos
 
-![Untitled](Projeto%20Inoa%209d1ac2efd78146fe87442de58bcf66cb/Untitled%202.png)
+![Untitled](static\images\Untitled 3.png)
